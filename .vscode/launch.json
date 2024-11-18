@@ -1,0 +1,39 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+
+    {
+      "name": "Module",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "test.TestUtils"
+      // "args": [
+      // "--data_folder_path",
+      // "C:/Users/yassine.rakibi/OneDrive - SoftwareONE/Bureau/app/testDE/test_data",
+      // "--output_folder_path",
+      // "yas"]
+    },
+
+    {
+      "name": "Module main",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.pipeline.main",
+      "args": [
+      "--data_folder_path",
+      "C:/Users/yassine.rakibi/OneDrive - SoftwareONE/Bureau/app/testDE/data",
+      "--output_folder_path",
+      "yas"]
+    }
+  ]
+}

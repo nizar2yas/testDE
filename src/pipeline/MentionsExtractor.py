@@ -17,3 +17,7 @@ class MentionsExtractor(beam.DoFn):
                         'journal': journal
                     }
                 })
+            else :
+                yield (drug_name, {
+                    self.field_name: None
+                })

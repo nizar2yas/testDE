@@ -1,5 +1,5 @@
 import apache_beam as beam
-from utils import extract_data_from_nested_list
+from ..utils.utils import extract_data_from_nested_list
 
 class CombinerFn(beam.CombineFn):
 
