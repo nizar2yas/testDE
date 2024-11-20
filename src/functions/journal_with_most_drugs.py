@@ -26,7 +26,6 @@ def get_journal_with_most_distinct_drugs(data):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--input_path", help="drugs data file path", required=True)
-    parser.add_argument("-d", "--drug_name", help="Drug name to search for", required=True)
     args = parser.parse_args()
 
     drug_journal_data = load_json_file(args.input_path)

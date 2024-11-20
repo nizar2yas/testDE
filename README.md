@@ -75,7 +75,7 @@ pip install -r requirements.txt
 #### Exécuter la pipeline
 Le fichier `main.py` est le point d'entrée de la pipeline. Vous pouvez le lancer comme suit :
 ```
--m src.pipeline.main --data_folder_path  "/data" --output_folder_path "output"
+python3 -m src.pipeline.main --data_folder_path  "/data" --output_folder_path "output"
 ```
 Après génération du fichier `output.json` vous pouvez lancer les deux fonctions suivantes:
 #### Fonctions Bonus
@@ -92,7 +92,7 @@ La fonction accepte comme paramètre :
 * le chemin du dossier contenant le fichier *`output.json`* 
 * nom du médicament 
 ```
-python3 -m src.functions.journal_with_most_drugs -i "output/output.json" -d "TETRACYCLINE"
+python3 -m src.functions.related_drugs -i "output/output.json" -d "TETRACYCLINE"
 ```
 ## Tests
 #### Unit Tests
