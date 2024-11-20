@@ -151,3 +151,38 @@ le code actuel permet de s'intégrer facilement avec GCP et en peux l'éxécuter
     --temp_location gs://STORAGE_BUCKET/tmp/
   ```
   cependant il faut quand même apporter des modifications permettant notament la lecture de plusieurs fichiers de même type en même temps (drugs1.csv, drugs2.csv ...)ou bien la lecture de d'autres format de fichier mieux adapter (*`Parquet`* ou *`Avro`*)
+
+# SQL
+### Première partie
+pour trouver le chiffre d’affaires par jour, du 1er janvier 2019 au 31 décembre 201
+
+```
+select 
+    date,
+    sum(prod_price*prod_qty) as ventes
+from TRANSACTIONS
+where date(date) between '2019/01/01' and '2019/12/31'
+group by date
+order by date
+```
+
+Pour déterminer les ventes meuble et déco réalisées par client et sur la période allant du  1er janvier 2019 au 31 décembre 2019: 
+```
+SELECT 
+    t.client_id AS client_id, 
+    SUM(CASE WHEN p.product_type = 'MEUBLE' THEN t.prod_price * t.prod_qty ELSE 0 END) AS ventes_meuble,
+    SUM(CASE WHEN p.product_type = 'DECO' THEN t.prod_price * t.prod_qty ELSE 0 END) AS ventes_deco
+FROM 
+    TRANSACTIONS t
+JOIN 
+    PRODUCT_NOMENCLATURE p 
+ON 
+    t.prod_id = p.product_id
+WHERE 
+    t.date BETWEEN '2019/01/01' AND '2019/12/31'
+GROUP BY 
+    t.client_id
+ORDER BY 
+    t.client_id;
+
+```
