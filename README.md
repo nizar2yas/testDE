@@ -142,7 +142,7 @@ le code actuel permet de s'intégrer facilement avec GCP et en peux l'éxécuter
 * installé la dépendance gcp : `pip install apache-beam[gcp]`
 * lancer cette command : 
   ```
-    python -m apache_beam.examples.wordcount \
+    python -m src.pipeline.main \
     --region DATAFLOW_REGION \
     --data_folder_path gs://dataflow-samples/shakespeare/kinglear.txt \
     --output_folder_path gs://STORAGE_BUCKET/results/outputs \
